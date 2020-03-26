@@ -1,2 +1,3 @@
 # Jervis
-fuck yu jaydiem
+
+A voice-activated bot. Coded in Python.
