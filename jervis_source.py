@@ -3,7 +3,8 @@ import sys
 import yaml
 import speech_recognition as sr 
 
-from assets.tts import tts
+from brain import brain
+from library.resources.tts import tts
 
 profile = open('profile.yaml')
 profile_data = yaml.safe_load(profile)
@@ -12,7 +13,7 @@ profile.close()
 name = profile_data['name']
 city_name = profile_data['city_name']
 
-tts('Welcome ' + name + ', systems are now ready to run. How can I help you?')
+tts('Welcome ' + name + ', thanks for waking me up. How can I help you?')
 
 def main():
 	r = sr.Recognizer()
@@ -28,6 +29,6 @@ def main():
 	except sr.RequestError as e:
 		print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
-	tts(speech_text)
+	brain(name, speech_text)
 
 main()
