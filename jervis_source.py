@@ -13,7 +13,7 @@ profile.close()
 name = profile_data['name']
 city_name = profile_data['city_name']
 
-tts('Welcome ' + name + ', thanks for waking me up. How can I help you?')
+tts('Welcome ' + name + '. How can I help you?')
 
 def main():
 	r = sr.Recognizer()

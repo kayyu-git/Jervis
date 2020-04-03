@@ -19,4 +19,4 @@ def how_are_you():
 	tts(random.choice(quotes))
 
 def undefined():
-	tts('I\'m afraid I don\'t understand.')
+	tts('Im afraid I dont understand.')
