@@ -18,5 +18,8 @@ def how_are_you():
 	quotes = ['Alright, thank you.']
 	tts(random.choice(quotes))
 
+def i_am_the_bone_of_my_sword():
+	tts('I am the bone of my sword. Steel is my body and fire is my blood. I have created over a thousand blades, unknown to death nor known to life. Have withstood pain to create many weapons yet those hands will never hold anything. So, as I pray. Unlimited Blade Works.')
+
 def undefined():
 	tts('Im afraid I dont understand.')

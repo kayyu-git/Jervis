@@ -20,5 +20,8 @@ def brain(name, speech_text):
 	elif check_message(['how', 'are', 'you']):
 		small_talk.how_are_you()
 
+	elif check_message(['i', 'am', 'the', 'bone', 'of', 'my', 'sword']):
+		small_talk.i_am_the_bone_of_my_sword()
+
 	else:
 		small_talk.undefined()
