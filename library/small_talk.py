@@ -1,5 +1,5 @@
 import random
-from resources.tts import tts
+from library.resources.tts import tts
 
 def who_are_you():
 	quotes = ['I am Jervis, the superior AI.', 'Jervis, obviously. How many times do I have to tell you?',
