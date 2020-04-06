@@ -1,3 +1,5 @@
+import os
+
 import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -12,11 +14,13 @@ from keras.layers import Dense, Activation, Dropout
 from keras.optimizers import SGD
 import random
 
+cur_path = os.path.dirname(__file__)
+
 words = []
 classes = []
 documents = []
 ignore_words = ['?', '!']
-data_file = open('resources/intents.json').read()
+data_file = open(os.path.relpath('..\\resources\\intents.json', cur_path)).read()
 intents = json.loads(data_file)
 
 for intent in intents['intents']:
@@ -38,8 +42,8 @@ print (len(classes), "classes", classes)
 
 print (len(words), "unique lemmatized words", words)
 
-pickle.dump(words, open('words.pkl', 'wb'))
-pickle.dump(classes, open('classes.pkl', 'wb'))
+pickle.dump(words, open(os.path.relpath('..\\resources\\words.pkl', cur_path), 'wb'))
+pickle.dump(classes, open(os.path.relpath('..\\resources\\classes.pkl', cur_path), 'wb'))
 
 training = []
 output_empty = [0] * len(classes)
@@ -72,6 +76,6 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
-model.save('chatbot_model.h5', hist)
+model.save(os.path.relpath('..\\resources\\chatbot_model.h5', cur_path), hist)
 
 print("model created")
