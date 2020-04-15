@@ -13,6 +13,7 @@ profile.close()
 # Functioning Variables
 name = profile_data['name']
 city_name = profile_data['city_name']
+city_code = profile_data['city_code']
 
 tts('Welcome ' + name + ', systems are now ready to run. How can I help you?')
 
@@ -25,10 +26,10 @@ def main():
 		speech_text = r.recognize_google(audio).lower().replace("'", "")
 		print("Jervis thinks you said '" + speech_text + "'")
 	except sr.UnknownValueError:
-		print("Melissa could not understand audio")
+		print("Jervis could not understand audio")
 	except sr.RequestError as e:
 		print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
-	brain(name, speech_text)
+	brain(name, speech_text, city_name, city_code)
 
 main()
