@@ -1,4 +1,4 @@
-# Joden, Goonbot
+# Goonbot, Joden
 
 A voice-activated bot. Coded in Python.
 
